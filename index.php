@@ -1,3 +1,4 @@
+<?php require("Donnees.inc.php"); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -5,6 +6,6 @@
     <title>Projet</title>
   </head>
   <body>
-    Empty
+    <?php phpinfo(); ?>
   </body>
 </html>
