@@ -38,17 +38,21 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
   // if the category we are on has subcategories, display them
   if (array_key_exists('sous-categorie', $Hierarchie[$current])) {
     echo '<h2> Je veux un cocktail contenant:</h2>';
+    echo '<ul>';
     foreach ($Hierarchie[$current]['sous-categorie'] as $souscat) {
-      echo '<a href="index.php' . buildGetParams('params', $params) . '&params[]=' . $souscat . '">' . $souscat . '</a><br>';
+      echo '<li><a href="index.php' . buildGetParams('params', $params) . '&params[]=' . $souscat . '">' . $souscat . '</a></li>';
     }
+    echo '</ul>';
     echo "<hr>";
   } else { // else, show the category name
     echo '<h2>Cocktail(s) contenant: ' . $current . '</h2>';
   }
   // show recipes for the current category
+  echo '<ul>';
   foreach ($matchingRecipes as $id) {
-    echo '<a href="afficherecette.php?id=' . $id . '">' . $Recettes[$id]['titre'] . '</a><br>';
+    echo '<li><a href="afficherecette.php?id=' . $id . '">' . $Recettes[$id]['titre'] . '</a></li>>';
   }
+  echo '</ul>';
   ?>
 </body>
 
