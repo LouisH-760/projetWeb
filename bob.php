@@ -39,6 +39,7 @@
                     break;
                 }
             }
+            // uncomment those lines to remove the result limit
             if(count($tmp) > 25) {
                 return $tmp;
             }
