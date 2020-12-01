@@ -9,7 +9,9 @@ if (!isset($_GET["id"])) {
     Header("Location: index.php");
 }
 // get stuff
-$id = $_GET["id"];
+$id = intval($_GET["id"]);
+$prev = ($id >= 1) ? $id - 1 : $id;
+$next = ($id <= count($Recettes) - 2) ? $id + 1 : $id;
 $titre = $Recettes[$id]['titre'];
 $ingredients = explode('|', $Recettes[$id]['ingredients']);
 $préparation = $Recettes[$id]['preparation'];
@@ -29,31 +31,45 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><p><h2>Image</h2><im
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/recette.css">
+
+    <!-- Google fonts WOOOOOOOOOOOOo -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
     <title><?php echo $titre; ?></title>
 </head>
 
 <body>
     <nav>
-        <a href="index.php">Retour à l'acceuil</a>
-    </nav>
-    <p>
-        <h1><?php echo $titre; ?></h1>
-        <h2>Ingrédients</h2>
-        <ul class="ingrédients">
-            <?php
-            foreach ($ingredients as $ingredient) {
-                echo '<li>' . $ingredient . '</li>';
-            }
-            ?>
+        <ul>
+            <li><a href="afficherecette.php?id=<?php echo $prev; ?>">&lt; Recette Précédente</a></li>
+            <li><a href="index.php" id="mainlink">Retour à l'accueil</a></li>
+            <li><a href="afficherecette.php?id=<?php echo $next; ?>">Recette Suivante &gt;</a></li>
         </ul>
-    </p>
-    <p>
-        <h2>Instructions</h2>
-        <?php echo $préparation; ?>
-    </p>
-    <p>
-        <?php echo $imgContainer; ?>
-    </p>
+    </nav>
+    <main>
+        <p>
+            <h1><?php echo $titre; ?></h1>
+            <h2>Ingrédients</h2>
+            <ul class="ingrédients">
+                <?php
+                foreach ($ingredients as $ingredient) {
+                    echo '<li>' . $ingredient . '</li>';
+                }
+                ?>
+            </ul>
+        </p>
+        <p>
+            <h2>Instructions</h2>
+            <?php echo $préparation; ?>
+        </p>
+        <p>
+            <?php echo $imgContainer; ?>
+        </p>
+    </main>
     <footer>
         <h2>Tags</h2>
         <p>

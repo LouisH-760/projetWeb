@@ -1,0 +1,44 @@
+.subcats {
+    text-align      : center;
+    background-color: #88e1f2;
+    border-bottom   : 3px solid #ff7c7c;
+}
+
+.subcats ul {
+    list-style: none;
+    padding   : 0;
+}
+
+.subcats li {
+    display      : inline-block;
+    margin       : 3px 5px;
+    padding      : 5px;
+    border       : 3px solid #ff7c7c;
+    border-radius: 20px;
+    text-align   : center;
+}
+
+.subcats a,
+.subcats a:visited {
+    font-weight    : bold;
+    text-decoration: none;
+}
+
+.subcats a:hover {
+    color: #21243d;
+}
+
+.subcats a::before {
+    content: "+ ";
+}
+
+.subcats li {
+    background-color: #ff7c7c;
+    color           : white;
+}
+
+.subcats li:hover {
+    background-color: #88e1f2;
+    color           : #21243d;
+    transition      : 0.2s;
+}

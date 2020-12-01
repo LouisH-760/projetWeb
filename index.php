@@ -28,24 +28,29 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/index.css">
+
+  <!-- Google fonts WOOOOOOOOOOOOo -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <title>Projet</title>
 </head>
 
 <body>
   <?php
   // display the navigation thread
-  echo '<nav>Catégorie: ' . implode(' > ', $ariane) . '<hr>' . '<nav>';
+  echo '<nav>Catégorie: ' . implode(' > ', $ariane) . '</nav>';
   // if the category we are on has subcategories, display them
   if (array_key_exists('sous-categorie', $Hierarchie[$current])) {
-    echo '<h2> Je veux un cocktail contenant:</h2>';
-    echo '<ul>';
+    echo '<div class="subcats"><ul>';
     foreach ($Hierarchie[$current]['sous-categorie'] as $souscat) {
       echo '<li><a href="index.php' . buildGetParams('params', $params) . '&params[]=' . $souscat . '">' . $souscat . '</a></li>';
     }
-    echo '</ul>';
-    echo "<hr>";
+    echo '</ul></div>';
   } else { // else, show the category name
-    echo '<h2>Cocktail(s) contenant: ' . $current . '</h2>';
+    echo '<div class="subcats"><h2>Cocktail(s) contenant: ' . $current . '</h2></div>';
   }
   // show recipes for the current category
   echo '<ul>';

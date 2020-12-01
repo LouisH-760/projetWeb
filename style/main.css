@@ -1,0 +1,33 @@
+/* colors: https://colorhunt.co/palette/170829 */
+
+/* reset, the ugly way */
+* {
+    margin: 0;
+}
+
+html {
+    font-family     : 'Raleway', sans-serif;
+    color           : #21243d;
+    background-color: white;
+}
+
+nav {
+    background-color: #ffd082;
+    padding         : 5px;
+    border-bottom   : 3px solid #ff7c7c;
+}
+
+li {
+    padding: 0.2em;
+}
+
+a,
+a:visited {
+    color                : inherit;
+    text-decoration-color: #21243d;
+}
+
+a:hover {
+    text-decoration-color: #ff7c7c;
+    transition           : 0.3s;
+}
