@@ -52,13 +52,27 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
   } else { // else, show the category name
     echo '<div class="subcats"><h2>Cocktail(s) contenant: ' . $current . '</h2></div>';
   }
-  // show recipes for the current category
-  echo '<ul>';
-  foreach ($matchingRecipes as $id) {
-    echo '<li><a href="afficherecette.php?id=' . $id . '">' . $Recettes[$id]['titre'] . '</a></li>';
-  }
-  echo '</ul>';
+  if ($root == $current) {
   ?>
+    <div class="search">
+      <form action="#">
+        <input type="text" name="searchbar" id="searchbar" placeholder="Mojito">
+        <input type="submit" value="Rechercher">
+      </form>
+      <hr>
+      <a href="#">Recherche avancée</a>
+    </div>
+  <?php } ?>
+  <div class="recettes">
+    <?php
+    // show recipes for the current category
+    echo '<ul>';
+    foreach ($matchingRecipes as $id) {
+      echo '<li><a href="afficherecette.php?id=' . $id . '">' . $Recettes[$id]['titre'] . '</a></li>';
+    }
+    echo '</ul>';
+    ?>
+  </div>
 </body>
 
 </html>

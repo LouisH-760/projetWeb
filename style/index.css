@@ -42,3 +42,26 @@
     color           : #21243d;
     transition      : 0.2s;
 }
+
+.search {
+    text-align   : center;
+    padding      : 1em 0;
+    margin-bottom: 0.5em;
+}
+
+.search form {
+    padding: 5px;
+}
+
+.search hr {
+    width : 45%;
+    margin: auto;
+}
+
+.search a {
+    font-size: 0.7em;
+}
+
+.search input[type=text] {
+    width: 50%;
+}
