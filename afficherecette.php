@@ -10,8 +10,8 @@ if (!isset($_GET["id"])) {
 }
 // get stuff
 $id = intval($_GET["id"]);
-$prev = ($id >= 1) ? $id - 1 : $id;
-$next = ($id <= count($Recettes) - 2) ? $id + 1 : $id;
+$prev = ($id >= 1) ? '<li><a href="afficherecette.php?id=' . ($id - 1) . '">&lt; Recette Précédente</a></li>' : NULL;
+$next = ($id <= count($Recettes) - 2) ? '<li><a href="afficherecette.php?id=' . ($id + 1) . '">Recette suivante &gt;</a></li>' : NULL;
 $titre = $Recettes[$id]['titre'];
 $ingredients = explode('|', $Recettes[$id]['ingredients']);
 $préparation = $Recettes[$id]['preparation'];
@@ -45,9 +45,9 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><p><h2>Image</h2><im
 <body>
     <nav>
         <ul>
-            <li><a href="afficherecette.php?id=<?php echo $prev; ?>">&lt; Recette Précédente</a></li>
+            <?php echo $prev; ?>
             <li><a href="index.php" id="mainlink">Retour à l'accueil</a></li>
-            <li><a href="afficherecette.php?id=<?php echo $next; ?>">Recette Suivante &gt;</a></li>
+            <?php echo $next; ?>
         </ul>
     </nav>
     <main>
