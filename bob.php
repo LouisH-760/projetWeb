@@ -47,10 +47,10 @@
                     break;
                 }
             }
-            // uncomment those lines to remove the result limit
-            if(count($tmp) > 25) {
+            // uncomment those lines to reinstate the result limit
+            /*if(count($tmp) > 25) {
                 return $tmp;
-            }
+            }*/
         }
         return $tmp;
     }
