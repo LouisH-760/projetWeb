@@ -54,17 +54,21 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><p><h2>Image</h2><im
         <p>
             <h1><?php echo $titre; ?></h1>
             <h2>Ingrédients</h2>
-            <ul class="ingrédients">
-                <?php
-                foreach ($ingredients as $ingredient) {
-                    echo '<li>' . $ingredient . '</li>';
-                }
-                ?>
-            </ul>
+            <div class="contenu">
+                <ul class="ingrédients">
+                    <?php
+                    foreach ($ingredients as $ingredient) {
+                        echo '<li>' . $ingredient . '</li>';
+                    }
+                    ?>
+                </ul>
+            </div>
         </p>
         <p>
             <h2>Instructions</h2>
-            <?php echo $préparation; ?>
+            <div class="contenu">
+                <?php echo $préparation; ?>
+            </div>
         </p>
         <p>
             <?php echo $imgContainer; ?>

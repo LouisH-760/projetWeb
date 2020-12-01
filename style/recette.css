@@ -30,7 +30,7 @@ footer {
     text-orientation: mixed;
 }
 
-ul {
+nav ul {
     padding   : 0;
     list-style: none;
 }
@@ -44,4 +44,8 @@ h1 {
 main h2 {
     text-decoration: underline;
     padding        : 5px 0;
+}
+
+.contenu {
+    text-align: left;
 }
