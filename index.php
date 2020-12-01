@@ -50,7 +50,7 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
   // show recipes for the current category
   echo '<ul>';
   foreach ($matchingRecipes as $id) {
-    echo '<li><a href="afficherecette.php?id=' . $id . '">' . $Recettes[$id]['titre'] . '</a></li>>';
+    echo '<li><a href="afficherecette.php?id=' . $id . '">' . $Recettes[$id]['titre'] . '</a></li>';
   }
   echo '</ul>';
   ?>
