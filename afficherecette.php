@@ -35,6 +35,7 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><p><h2>Image</h2><im
 <body>
     <p>
         <h1><?php echo $titre; ?></h1>
+        <a href="index.php">Retour à l'acceuil</a>
         <h2>Ingrédients</h2>
         <ul class="ingrédients">
             <?php

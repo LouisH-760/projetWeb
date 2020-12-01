@@ -34,7 +34,7 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
 <body>
   <?php
   // display the navigation thread
-  echo '<div class="ariane">' . implode(' > ', $ariane) . '<hr>' . '</div>';
+  echo '<nav>Catégorie: ' . implode(' > ', $ariane) . '<hr>' . '<nav>';
   // if the category we are on has subcategories, display them
   if (array_key_exists('sous-categorie', $Hierarchie[$current])) {
     echo '<h2> Je veux un cocktail contenant:</h2>';
