@@ -13,6 +13,7 @@
 
     <nav>
         <a href="index.php" id="mainlink">Retour à l'accueil</a>
+        <a href="Login.php" id="mainlink">Retour au login</a>
     </nav>
     <main>
         <h1>Créer un profil utilisateur</h1>
