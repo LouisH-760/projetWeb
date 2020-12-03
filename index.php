@@ -46,9 +46,9 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
 
 <body>
   <nav>
-  <?php
-  // display the navigation thread
-  echo 'Catégorie: ' . implode(' > ', $ariane); ?>
+    <?php
+    // display the navigation thread
+    echo 'Catégorie: ' . implode(' > ', $ariane); ?>
     <a href="FirstLogin.php" class="connection">Se connecter</a>
   </nav>
   <?php
@@ -63,14 +63,16 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
     echo '<div class="subcats"><h2>Cocktail(s) contenant: ' . $current . '</h2></div>';
   }
   ?>
-    <div class="search">
-      <form action="#">
+  <div class="search">
+    <form autocomplete="off" action="#">
+      <div class="autocomplete">
         <input type="text" name="searchbar" id="searchbar" placeholder="Mojito">
-        <input type="submit" value="Rechercher" id="submit">
-      </form>
-      <hr>
-      <a href="#">Recherche avancée</a>
-    </div>
+      </div>
+      <input type="submit" value="Rechercher" id="submit">
+    </form>
+    <hr>
+    <a href="#">Recherche avancée</a>
+  </div>
   <div class="recettes">
     <?php
     // show recipes for the current category
