@@ -39,9 +39,13 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
 </head>
 
 <body>
+  <nav>
   <?php
   // display the navigation thread
-  echo '<nav>Catégorie: ' . implode(' > ', $ariane) . '</nav>';
+  echo 'Catégorie: ' . implode(' > ', $ariane); ?>
+    <a href="FirstLogin.php" class="connection">Se connecter</a>
+  </nav>
+  <?php
   // if the category we are on has subcategories, display them
   if (array_key_exists('sous-categorie', $Hierarchie[$current])) {
     echo '<div class="subcats"><ul>';
