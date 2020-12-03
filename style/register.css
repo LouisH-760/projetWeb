@@ -1,0 +1,25 @@
+nav, main {
+    text-align: center;
+}
+
+form {
+    width: 75%;
+    margin: auto;
+    text-align: left;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.cpwidth {
+    width: 25%;
+    display: inline-block;
+    margin: 0;
+}
+
+.vwidth {
+    width: 74%;
+    display: inline-block;
+    margin: 0;
+}
