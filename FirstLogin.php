@@ -19,34 +19,55 @@
 
         <form method="post" action="Verif.php">
             <fieldset>
-                <legend>Informations Personelles</legend>
-
-                Login :
-                <input type="text" name="login" required="required" class="fullwidth" /><br />
-                Mot de passe :
-                <input type="text" name="passe" required="required" class="fullwidth" /><br />
-                Nom :
-                <input type="text" name="nom" class="fullwidth" /><br />
-                Prénom :
-                <input type="text" name="prenom" class="fullwidth" /><br />
-                Vous êtes :
-                <label><input type="radio" name="sexe" value="f" /> femme</label>
-                <label><input type="radio" name="sexe" value="h" /> homme</label>
-                <br />
-                Mail :
-                <input type="text" name="mail" class="fullwidth" /><br />
-                Date de naissance :
-                <input type="date" name="naissance" class="fullwidth" /><br />
-                Adresse :
-                <input type="text" name="adresse" class="fullwidth" /><br />
-                <div class="fullwidth">
-                    <div class="cpwidth">
-                        Code Postal :
-                        <input type="text" name="adresseCP" class="fullwidth"/>
-                    </div>
-                    <div class="vwidth">
-                        Ville :
-                        <input type="text" name="adresseV" class="fullwidth" /><br />
+                <legend>Utilisateur</legend>
+                <div class="group required">
+                    Login :
+                    <input type="text" name="login" required="required" class="fullwidth" />
+                </div>
+                <div class="group required">
+                    Mot de passe :
+                    <input type="text" name="passe" required="required" class="fullwidth" />
+                </div>
+                <div class="group optional">
+                    Mail :
+                    <input type="text" name="mail" class="fullwidth" />
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Données Personelles</legend>
+                <div class="group optional">
+                    Nom :
+                    <input type="text" name="nom" class="fullwidth" />
+                </div>
+                <div class="group optional">
+                    Prénom :
+                    <input type="text" name="prenom" class="fullwidth" /></div>
+                <div class="group optional">
+                    Vous êtes :
+                    <label><input type="radio" name="sexe" value="f" /> femme</label>
+                    <label><input type="radio" name="sexe" value="h" /> homme</label>
+                </div>
+                <div class="group optional">
+                    Date de naissance :
+                    <input type="date" name="naissance" class="fullwidth" />
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Adresse</legend>
+                <div class="group optional">
+                    Adresse :
+                    <input type="text" name="adresse" class="fullwidth" />
+                </div>
+                <div class="group optional">
+                    <div class="fullwidth">
+                        <div class="cpwidth">
+                            Code Postal :
+                            <input type="text" name="adresseCP" class="fullwidth" />
+                        </div>
+                        <div class="vwidth">
+                            Ville :
+                            <input type="text" name="adresseV" class="fullwidth" />
+                        </div>
                     </div>
                 </div>
             </fieldset>
