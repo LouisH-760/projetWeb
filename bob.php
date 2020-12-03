@@ -18,11 +18,12 @@
         return '?' . implode("&", $tmp);
     }
 
-    function getNonSub($root, $array) {
+    function getUnder($root, $array) {
         if(array_key_exists('sous-categorie', $array[$root])) {
             $tmp = array();
             foreach($array[$root]['sous-categorie'] as $souscat) {
-                $tmp = array_merge($tmp, getNonSub($souscat, $array));
+                $tmp[] = $souscat;
+                $tmp = array_merge($tmp, getUnder($souscat, $array));
             }
             return $tmp;
         } else {

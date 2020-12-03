@@ -20,7 +20,7 @@ foreach ($params as $param) {
 }
 
 // get the matching recipes
-$matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
+$matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +52,6 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
   } else { // else, show the category name
     echo '<div class="subcats"><h2>Cocktail(s) contenant: ' . $current . '</h2></div>';
   }
-  if ($root == $current) {
   ?>
     <div class="search">
       <form action="#">
@@ -62,7 +61,6 @@ $matchingRecipes = getAllRecipes(getNonSub($current, $Hierarchie), $Recettes);
       <hr>
       <a href="#">Recherche avancée</a>
     </div>
-  <?php } ?>
   <div class="recettes">
     <?php
     // show recipes for the current category
