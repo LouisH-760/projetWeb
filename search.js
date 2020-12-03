@@ -13,8 +13,7 @@ function handle() {
     let inputVal = $('#searchbar').val().trim();
     // get the arguments array
     let toSend = parseArgs(inputVal);
-    // rTODO eplace this by sending to the backend
-    console.log(toSend);
+    // TODO eplace this by sending to the backend
     // TODO replace placeholder with actual autocomplete to display
     addToAutoCompleteBox(toSend.include);
 }
@@ -77,7 +76,6 @@ function parseArgs(query) {
 // then this won't run before the DOM finished loading.
 // trigger autocompletion on key release and focus gained from the searchbar
 $("#searchbar").keyup(handle);
-$("#searchbar").onfocus(handle);
 // non-jQuery listen to encompass the whole DOM
 document.addEventListener("click", function (e) {
     $('.autocomplete-items').remove();
