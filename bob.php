@@ -70,4 +70,3 @@
         $str = preg_replace("/[^a-zA-Z ]/", "", $str);
         return implode('_', explode(' ', $str));
     }
-?>
