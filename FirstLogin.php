@@ -25,8 +25,8 @@
     Prénom : 
     <input type="text" name="prenom" /><br /> 	
     Vous êtes :
-	<input type="radio" name="sexe" value="f"/> femme 	
-	<input type="radio" name="sexe" value="h"/> homme
+	<label><input type="radio" name="sexe" value="f"/> femme</label>	
+	<label><input type="radio" name="sexe" value="h"/> homme</label>
     <br />
     Mail :
 	<input type="text" name="mail" /><br />  	
