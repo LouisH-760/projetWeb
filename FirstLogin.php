@@ -22,7 +22,7 @@
                 <legend>Utilisateur</legend>
                 <div class="group required tooltip">
                     Login :
-                    <input type="text" name="login" required="required" class="fullwidth" />
+                    <input type="text" name="login" required="required" class="fullwidth" placeholder="john123"/>
                     <span class="tooltiptext">Champ obligatoire</span>
                 </div>
                 <div class="group required tooltip">
@@ -32,18 +32,18 @@
                 </div>
                 <div class="group optional">
                     Mail :
-                    <input type="text" name="mail" class="fullwidth" />
+                    <input type="text" name="mail" class="fullwidth" placeholder="john@example.com"/>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Données Personelles</legend>
                 <div class="group optional">
                     Nom :
-                    <input type="text" name="nom" class="fullwidth" />
+                    <input type="text" name="nom" class="fullwidth" placeholder="John"/>
                 </div>
                 <div class="group optional">
                     Prénom :
-                    <input type="text" name="prenom" class="fullwidth" /></div>
+                    <input type="text" name="prenom" class="fullwidth" placeholder="Doe"/></div>
                 <div class="group optional">
                     Vous êtes :
                     <label><input type="radio" name="sexe" value="f" /> femme</label>
@@ -51,24 +51,24 @@
                 </div>
                 <div class="group optional">
                     Date de naissance :
-                    <input type="date" name="naissance" class="fullwidth" />
+                    <input type="date" name="naissance" class="fullwidth"/>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Adresse</legend>
                 <div class="group optional">
                     Adresse :
-                    <input type="text" name="adresse" class="fullwidth" />
+                    <input type="text" name="adresse" class="fullwidth" placeholder="1, Avenue Example"/>
                 </div>
                 <div class="groupnp">
                     <div class="fullwidth">
                         <div class="cpwidth optional">
                             Code Postal :
-                            <input type="text" name="adresseCP" class="fullwidth" />
+                            <input type="text" name="adresseCP" class="fullwidth" placeholder="12345"/>
                         </div>
                         <div class="vwidth">
                             Ville :
-                            <input type="text" name="adresseV" class="fullwidth" />
+                            <input type="text" name="adresseV" class="fullwidth" placeholder="Example-sur-mer"/>
                         </div>
                     </div>
                 </div>
