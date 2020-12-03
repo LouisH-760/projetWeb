@@ -3,14 +3,29 @@ main {
     text-align: center;
 }
 
+main {
+    border : 2px solid gray;
+    padding: 5px;
+    width  : 75%;
+    margin: 5px auto;
+}
+
 form {
-    width     : 75%;
-    margin    : auto;
+    margin    : 5px auto;
+    text-align: left;
+    text-align: center;
+}
+
+fieldset {
     text-align: left;
 }
 
 input:not([type=radio]) {
     margin: 2px 0;
+}
+
+input[type=submit] {
+    font-size: 1.1em;
 }
 
 .fullwidth {
