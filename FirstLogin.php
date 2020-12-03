@@ -20,13 +20,15 @@
         <form method="post" action="Verif.php">
             <fieldset>
                 <legend>Utilisateur</legend>
-                <div class="group required">
+                <div class="group required tooltip">
                     Login :
                     <input type="text" name="login" required="required" class="fullwidth" />
+                    <span class="tooltiptext">Champ obligatoire</span>
                 </div>
-                <div class="group required">
+                <div class="group required tooltip">
                     Mot de passe :
                     <input type="text" name="passe" required="required" class="fullwidth" />
+                    <span class="tooltiptext">Champ obligatoire</span>
                 </div>
                 <div class="group optional">
                     Mail :
@@ -58,9 +60,9 @@
                     Adresse :
                     <input type="text" name="adresse" class="fullwidth" />
                 </div>
-                <div class="group optional">
+                <div class="groupnp">
                     <div class="fullwidth">
-                        <div class="cpwidth">
+                        <div class="cpwidth optional">
                             Code Postal :
                             <input type="text" name="adresseCP" class="fullwidth" />
                         </div>
