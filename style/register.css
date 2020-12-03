@@ -81,6 +81,7 @@ fieldset {
     border-left: 3px solid red;
 }
 
+/* Tooltip from w3schools */
 .tooltip .tooltiptext {
     visibility      : hidden;
     width           : 120px;
@@ -95,15 +96,17 @@ fieldset {
     z-index         : 1;
 }
 
+/* affiche le tooltip quand on passe au dessus de "groupe" */
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
 
+/* flèche du tooltip */
 .tooltip .tooltiptext::after {
     content: " ";
     position: absolute;
     top: 50%;
-    left: 100%; /* To the right of the tooltip */
+    left: 100%;
     margin-top: -5px;
     border-width: 5px;
     border-style: solid;
