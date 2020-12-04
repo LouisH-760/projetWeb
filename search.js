@@ -4,12 +4,20 @@ const SPLIT = /([-\+])/g;
 // if you change one, change the regex too!
 const PLUSSEP = "+";
 const MINUSSEP = "-";
+// code de la touche entrée
+const ENTER = 13;
 
 /**
  * Handle when the search button is clicked.
  */
 function clickHandle() {
     $.get("search.php", getParsedInput(), searchResultHandler);
+}
+
+function enterHandle(e) {
+    if(e.which == ENTER) {
+        clickHandle();
+    }
 }
 
 /**
@@ -122,6 +130,7 @@ function parseArgs(query) {
 // then this won't run before the DOM finished loading.
 // trigger autocompletion on key release and focus gained from the searchbar
 $("#searchbar").keyup(autocHandle);
+$("#searchbar").keypress(enterHandle);
 $("#search").click(clickHandle);
 // non-jQuery listen to encompass the whole DOM
 document.addEventListener("click", function (e) {
