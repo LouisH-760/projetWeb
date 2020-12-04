@@ -30,7 +30,7 @@
                 </div>
                 <div class="group required tooltip">
                     Mot de passe :
-                    <input type="text" name="passe" required="required" class="fullwidth" />
+                    <input type="password" name="passe" required="required" class="fullwidth" />
                     <span class="tooltiptext">Champ obligatoire</span>
                 </div>
                 <div class="group optional">
