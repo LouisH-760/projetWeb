@@ -68,7 +68,7 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
   <div class="search">
     <form autocomplete="off" action="#">
       <div class="autocomplete">
-        <input type="text" name="searchbar" id="searchbar" placeholder="Mojito">
+        <input type="text" name="searchbar" id="searchbar" placeholder="Mojito -Basilic">
       </div>
       <!-- Hidden input with the current position -->
       <input type="hidden" class="hidden" value="<?php echo $current; ?>" id="currentVal">
