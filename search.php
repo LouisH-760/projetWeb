@@ -25,6 +25,7 @@
     $query = false;
     if (isset($_GET["query"])) {
         $query = $_GET["query"];
+        $query = implode("", $query);
     } 
 
     if (isset($_GET["root"])) {
