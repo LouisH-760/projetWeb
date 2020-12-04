@@ -25,7 +25,6 @@ function enterHandle(e) {
  * @param {string} results 
  */
 function searchResultHandler(results) {
-    console.log(results);
     let resObj = JSON.parse(results);
     let links = new Array();
     for (let elem of resObj.results) {
