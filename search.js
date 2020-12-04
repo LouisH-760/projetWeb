@@ -6,13 +6,59 @@ const PLUSSEP = "+";
 const MINUSSEP = "-";
 
 /**
- * Retrieve the search string, parse it.
+ * Handle when the search button is clicked.
  */
-function handle() {
+function clickHandle() {
+    $.get("search.php", getParsedInput(), searchResultHandler);
+}
+
+/**
+ * take the result of the get request in, parse it and display it
+ * @param {string} results 
+ */
+function searchResultHandler(results) {
+    let resObj = JSON.parse(results);
+    let links = new Array();
+    for(let elem of resObj.results) {
+        console.log(elem);
+        links.push(linkFromId(elem));
+    }
+    let disp = "<ul><li>";
+    disp += links.join("</li><li>");
+    disp += "</li></ul>";
+    $("#mainContainer").html(disp);
+}
+
+/**
+ * Return a link to diplay on the DOM
+ * and start a request to get it the name of the cocktail as text
+ * @param {string} id 
+ */
+function linkFromId(id) {
+    // fetch the names to display them
+    // This is done asynchronously.
+    $.get("gettitle.php", {"id":id}, function(result) { 
+        $("#" + id).html(result);
+    });
+    // return the link with a placeholder text.
+    // the text will automatically be replaced by the name of the cocktail
+    // once the get request finishes
+    // this should be transparent to the user
+    return '<a href="afficherecette.php?id=' + id + '" id="' + id + '">Loading...</a>';
+}
+
+function getParsedInput() {
     // searchbar trimmed value
     let inputVal = $('#searchbar').val().trim();
     // get the arguments array
-    let toSend = parseArgs(inputVal);
+    return parseArgs(inputVal);
+}
+
+/**
+ * Retrieve the search string, parse it.
+ */
+function autocHandle() {
+    let toSend = getParsedInput();
     // TODO eplace this by sending to the backend
     // TODO replace placeholder with actual autocomplete to display
     addToAutoCompleteBox(toSend.include);
@@ -75,7 +121,8 @@ function parseArgs(query) {
 // if the script is properly referenced in the head (with "defer"),
 // then this won't run before the DOM finished loading.
 // trigger autocompletion on key release and focus gained from the searchbar
-$("#searchbar").keyup(handle);
+$("#searchbar").keyup(autocHandle);
+$("#search").click(clickHandle);
 // non-jQuery listen to encompass the whole DOM
 document.addEventListener("click", function (e) {
     $('.autocomplete-items').remove();

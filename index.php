@@ -70,12 +70,14 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
       <div class="autocomplete">
         <input type="text" name="searchbar" id="searchbar" placeholder="Mojito">
       </div>
-      <input type="submit" value="Rechercher" id="submit">
+      <!-- We pull the results using jQuery. The form MUST NOT BE SUBMITTED! -->
+      <!-- keeping the search query is useful -->
+      <button type="button" id="search">Rechercher</button>
     </form>
     <hr>
     <a href="#">Recherche avancée</a>
   </div>
-  <div class="recettes">
+  <div class="recettes" id="mainContainer">
     <?php
     // show recipes for the current category
     echo '<ul>';
