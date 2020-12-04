@@ -25,6 +25,7 @@ function enterHandle(e) {
  * @param {string} results 
  */
 function searchResultHandler(results) {
+    console.log(results);
     let resObj = JSON.parse(results);
     let links = new Array();
     for (let elem of resObj.results) {
@@ -115,6 +116,7 @@ function parseArgs(query) {
     let tmpplus = [];
     let tmpminus = [];
     let tmpquery = [];
+    let root = $("#currentVal").val();
     let firstSplit = query.split(SPLIT);
     // go through the list. The separators (+ & -) are on their own, followed by their content
     // useful to split everything into a nice object!
@@ -129,7 +131,7 @@ function parseArgs(query) {
             tmpquery.push(firstSplit[i].trim());
         }
     }
-    return { "query": tmpquery, "include": tmpplus, "exclude": tmpminus };
+    return { "query": tmpquery, "include": tmpplus, "exclude": tmpminus, "root": root};
 }
 
 // if the script is properly referenced in the head (with "defer"),
