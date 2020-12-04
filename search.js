@@ -14,12 +14,6 @@ function clickHandle() {
     $.get("search.php", getParsedInput(), searchResultHandler);
 }
 
-function enterHandle(e) {
-    if (e.which == ENTER) {
-        clickHandle();
-    }
-}
-
 /**
  * take the result of the get request in, parse it and display it
  * @param {string} results 
