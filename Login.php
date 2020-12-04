@@ -6,14 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/register.css">
+    <link rel="stylesheet" href="style/forms.css">
+    <link rel="stylesheet" href="style/login.css">
 </head>
 
 <body>
 
     <nav>
         <a href="index.php" id="mainlink">Retour à l'accueil</a>
-        <a href="FirstLogin.php" id="mainlink">S'inscrire</a>
+
     </nav>
     <main>
         <h1>Se connecter</h1>
@@ -23,7 +24,7 @@
                 <legend>Utilisateur</legend>
                 <div class="group required tooltip">
                     Login :
-                    <input type="text" name="login" required="required" class="fullwidth" placeholder="john123"/>
+                    <input type="text" name="login" required="required" class="fullwidth" placeholder="john123" />
                     <span class="tooltiptext">Champ obligatoire</span>
                 </div>
                 <div class="group required tooltip">
@@ -33,7 +34,11 @@
                 </div>
             </fieldset>
             <input type="submit" value="Valider" />
+            <p class="register">
+                Pas encore de compte? <a href="FirstLogin.php">S'inscrire</a>
+            </p>
         </form>
+
     </main>
 </body>
 
