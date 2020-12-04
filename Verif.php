@@ -162,7 +162,7 @@ function getFavsFromUser($login){
 
     $favs = explode($seperator, file_get_contents($userFileName, true));
     unset($favs[0]);
-    array_splice($favs);// <---------------
+    //array_splice($favs);// <---------------
     return $favs;
 }
 
@@ -171,7 +171,7 @@ function loginCorrect($login, $password){
     $userFileName = getUserFileName($login);
     $content = explode($seperator, file_get_contents($userFileName, true));
     $hashedPassword = $content[0];
-    if (strcmp($hashed_password, password_hash($password, PASSWORD_DEFAULT)) == 0) {
+    if (strcmp($hashedPassword, password_hash($password, PASSWORD_DEFAULT)) == 0) {
         return true;
     }
     return false;
