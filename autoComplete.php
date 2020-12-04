@@ -6,7 +6,7 @@
     $exclude = false;
     if (isset($_GET["exclude"])) {
         $exclude = $_GET["exclude"];
-        $exclude = completeWithUnder($exclude, $hierarchy);
+        $exclude = completeWithUnder($exclude, $Hierarchie);
     }
 
 
