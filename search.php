@@ -12,8 +12,19 @@
         return $exclude !== false && inArray($exclude, $food);
     }
 
-    function testQuery($title, $query) {
-        return $query !== false && stringContainsFlexible($title, $query);
+    function testQuery($recipe, $query) {
+        if ($query === false) {
+            return false;
+        }
+        if (stringContainsFlexible($recipe["titre"], $query)) {
+            return true;
+        }
+        foreach($recipe["index"] as $id => $ingredient) {
+            if (stringContainsFlexible($ingredient, $query)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     function parseResults($results) {
@@ -59,7 +70,7 @@
                 $add = true;
             }
         }
-        if (testQuery($recipe["titre"], $query)) {
+        if (testQuery($recipe, $query)) {
             $add = true;
         }
         if (! $shoudExclude && $add) {
