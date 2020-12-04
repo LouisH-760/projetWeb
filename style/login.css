@@ -1,0 +1,20 @@
+nav,
+main {
+    text-align: center;
+}
+
+main {
+    margin : 5px auto;
+    padding: 5px;
+    width  : 75%;
+}
+
+fieldset {
+    text-align: left;
+    width     : 50%;
+    margin    : 5px auto;
+}
+
+.register {
+    margin: 5px auto;
+}

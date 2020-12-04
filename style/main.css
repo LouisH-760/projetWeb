@@ -32,3 +32,11 @@ a:hover {
     text-decoration-color: #ff7c7c;
     transition           : 0.3s;
 }
+
+nav {
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+}

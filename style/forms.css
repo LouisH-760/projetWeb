@@ -1,0 +1,70 @@
+.group {
+    display: block;
+    width  : 100%;
+    margin : 3px 0;
+    padding: 3px;
+}
+
+.groupnp {
+    display: block;
+    width  : 100%;
+    margin : 3px 0;
+}
+
+.required {
+    border-left: 3px solid #ff7c7c;
+}
+
+
+input[type=submit] {
+    font-size: 1.1em;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.optional {
+    border-left: 3px solid lightgray;
+}
+
+.error {
+    border-left: 3px solid red;
+}
+
+
+.fullwidth {
+    width: 100%;
+}
+
+/* Tooltip from w3schools */
+.tooltip .tooltiptext {
+    visibility      : hidden;
+    width           : 120px;
+    background-color: black;
+    color           : #fff;
+    text-align      : center;
+    padding         : 5px 0;
+    border-radius   : 6px;
+    position        : absolute;
+    top             : 0px;
+    right           : 103%;
+    z-index         : 1;
+}
+
+/* affiche le tooltip quand on passe au dessus de "groupe" */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* flèche du tooltip */
+.tooltip .tooltiptext::after {
+    content     : " ";
+    position    : absolute;
+    top         : 50%;
+    left        : 100%;
+    margin-top  : -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}

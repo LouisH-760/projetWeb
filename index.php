@@ -51,7 +51,7 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
     <?php echo 'Catégorie: ' . implode(' > ', $ariane); ?>
     <!-- login / favourites -->
     <!-- TODO add check if the user is logged in in the head and replace by variable? -->
-    <a href="FirstLogin.php" class="connection">Se connecter</a>
+    <a href="Login.php" class="connection">Se connecter</a>
   </nav>
   <?php
   // if the category we are on has subcategories, display them
