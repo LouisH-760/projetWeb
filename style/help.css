@@ -1,0 +1,19 @@
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin: 7px 0;
+}
+
+main {
+    width : 75%;
+    margin: auto;
+}
+
+code {
+    border: 1px solid gray;
+    background-color: lightgray;
+    font: monospace;
+    padding: 2px 5px;
+    border-radius: 5px;
+}

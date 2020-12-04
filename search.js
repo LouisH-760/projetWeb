@@ -15,7 +15,7 @@ function clickHandle() {
 }
 
 function enterHandle(e) {
-    if(e.which == ENTER) {
+    if (e.which == ENTER) {
         clickHandle();
     }
 }
@@ -27,13 +27,18 @@ function enterHandle(e) {
 function searchResultHandler(results) {
     let resObj = JSON.parse(results);
     let links = new Array();
-    for(let elem of resObj.results) {
-        console.log(elem);
+    for (let elem of resObj.results) {
         links.push(linkFromId(elem));
     }
-    let disp = "<ul><li>";
-    disp += links.join("</li><li>");
-    disp += "</li></ul>";
+    let disp;
+    if (links.length >= 1) {
+        disp = "<ul><li>";
+        disp += links.join("</li><li>");
+        disp += "</li></ul>";
+    } else {
+        disp = '<div class="nores">Aucun résultat trouvé pour votre requête</div>';
+    }
+
     $("#mainContainer").html(disp);
 }
 
@@ -45,7 +50,7 @@ function searchResultHandler(results) {
 function linkFromId(id) {
     // fetch the names to display them
     // This is done asynchronously.
-    $.get("gettitle.php", {"id":id}, function(result) { 
+    $.get("gettitle.php", { "id": id }, function (result) {
         $("#" + id).html(result);
     });
     // return the link with a placeholder text.
@@ -67,6 +72,7 @@ function getParsedInput() {
  */
 function autocHandle() {
     let toSend = getParsedInput();
+    toSend.root = $("#currentVal").val();
     // TODO eplace this by sending to the backend
     // TODO replace placeholder with actual autocomplete to display
     addToAutoCompleteBox(toSend.include);

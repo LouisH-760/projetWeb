@@ -70,12 +70,14 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
       <div class="autocomplete">
         <input type="text" name="searchbar" id="searchbar" placeholder="Mojito">
       </div>
+      <!-- Hidden input with the current position -->
+      <input type="hidden" class="hidden" value="<?php echo $current; ?>" id="currentVal">
       <!-- We pull the results using jQuery. The form MUST NOT BE SUBMITTED! -->
       <!-- keeping the search query is useful -->
       <button type="button" id="search">Rechercher</button>
     </form>
     <hr>
-    <a href="#">Recherche avancée</a>
+    <a href="help.html">Aide à la recherche</a>
   </div>
   <div class="recettes" id="mainContainer">
     <?php

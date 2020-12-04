@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/forms.css">
     <link rel="stylesheet" href="style/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +32,7 @@
                 </div>
                 <div class="group required tooltip">
                     Mot de passe :
-                    <input type="password" name="passe" required="required" class="fullwidth"/>
+                    <input type="password" name="passe" required="required" class="fullwidth" />
                     <span class="tooltiptext">Champ obligatoire</span>
                 </div>
             </fieldset>
