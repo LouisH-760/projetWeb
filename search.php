@@ -10,9 +10,17 @@
         return $result;
     }
 
-    $include = testGetWithHierarchy($_GET["include"], $Hierarchie);
+    $include = false;
+    if (isset($_GET["include"])) {
+        $include = $_GET["include"];
+        $include = completeWithUnder($include, $hierarchy);
+    }
 
-    $exclude = testGetWithHierarchy($_GET["exclude"], $Hierarchie);
+    $exclude = false;
+    if (isset($_GET["exclude"])) {
+        $exclude = $_GET["exclude"];
+        $exclude = completeWithUnder($exclude, $hierarchy);
+    }
 
     $query = false;
     if (isset($_GET["query"])) {
