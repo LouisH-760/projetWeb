@@ -36,6 +36,16 @@
         return false;
     }
 
+    function normalizeKeys($keys, $hierarchy) {
+        $result = array();
+        foreach($hierarchy as $k => $v) {
+            if (inArray($keys, $k)) {
+                array_push($result, $k);
+            }
+        }
+        return $result;
+    }
+
     function getRecipes($root, $hierarchy, $allRecipes) {
         $ingredients = getUnder($root, $hierarchy);
         array_push($ingredients, $root);
@@ -43,6 +53,20 @@
         $result = array();
         foreach($ids as $id) {
             $result[$id] = $allRecipes[$id];
+        }
+        return $result;
+    }
+
+    function completeWithUnder($toComplete, $hierarchy) {
+        $toComplete = normalizeKeys($toComplete, $hierarchy);
+        $result = $toComplete;
+        foreach($toComplete as $element) {
+            $under = getUnder($element, $hierarchy);
+            foreach($under as $u) {
+                if ( ! inArray($result, $u)) {
+                    array_push($result, $u);
+                }
+            }
         }
         return $result;
     }
