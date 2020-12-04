@@ -2,26 +2,37 @@
     require_once("Donnees.inc.php");
     require_once("bob.php");
 
-    function stringEqualsCaseProof($a, $b){
+    function stringEqualsFlexible($a, $b){
         return strtolower($a) == strtolower($b);
     }
 
+    function stringContainsFlexible($haystack, $needle) {
+        $needle = strtolower($needle);
+        $haystack = strtolower($haystack);
+        $result = strpos($haystack, $needle) !== false;
+        return $result;
+    }
+
     //case proof
-    function inArray($needle, $haystack) {
+    function inArray($haystack, $needle) {
         foreach ($haystack as $element) {
-            if (stringEqualsCaseProof($element, $needle)) {
+            if (stringEqualsFlexible($element, $needle)) {
                 return true;
             }
         }
         return false;
     }
 
-    function testInclude($food, $include) {
-        return $include !== false && inArray($food, $include);
+    function testInclude($include, $food) {
+        return $include !== false && inArray($include, $food);
     }
 
-    function testExclude($food, $exclude) {
-        return $exclude !== false && inArray($food, $exclude);
+    function testExclude($exclude, $food) {
+        return $exclude !== false && inArray($exclude, $food);
+    }
+
+    function testQuery($title, $query) {
+        return $query !== false && stringContainsFlexible($title, $query);
     }
 
     function parseResults($results) {
@@ -33,7 +44,12 @@
 
     function getRecipes($root, $hierarchy, $allRecipes) {
         $ingredients = getUnder($root, $hierarchy);
-        $result = getAllRecipes($ingredients, $allRecipes);
+        array_push($ingredients, $root);
+        $ids = getAllRecipes($ingredients, $allRecipes);
+        $result = array();
+        foreach($ids as $id) {
+            $result[$id] = $allRecipes[$id];
+        }
         return $result;
     }
 
@@ -60,18 +76,21 @@
 
     $result = array();
     $recipes = getRecipes($root, $Hierarchie, $Recettes);
-    foreach($Recettes as $recipeID => $recipe){
+    foreach($recipes as $recipeID => $recipe){
         // for each include, exclude, query 
         $shoudExclude = false;
         $add = false;
         foreach($recipe["index"] as $foodID => $food) {
-            if (testExclude($food, $exclude)) {
+            if (testExclude($exclude, $food)) {
                 $shoudExclude = true;
                 break;
             }
-            if (testInclude($food, $include)) {
+            if (testInclude($include, $food)) {
                 $add = true;
             }
+        }
+        if (testQuery($recipe["titre"], $query)) {
+            $add = true;
         }
         if (! $shoudExclude && $add) {
             array_push($result, $recipeID);
