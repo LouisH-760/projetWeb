@@ -1,27 +1,8 @@
 <?php
     require_once("Donnees.inc.php");
     require_once("bob.php");
+    require_once("searchAndAutoCompleteHelper.php");
 
-    function stringEqualsFlexible($a, $b){
-        return strtolower($a) == strtolower($b);
-    }
-
-    function stringContainsFlexible($haystack, $needle) {
-        $needle = strtolower($needle);
-        $haystack = strtolower($haystack);
-        $result = strpos($haystack, $needle) !== false;
-        return $result;
-    }
-
-    //case proof
-    function inArray($haystack, $needle) {
-        foreach ($haystack as $element) {
-            if (stringEqualsFlexible($element, $needle)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     function testInclude($include, $food) {
         return $include !== false && inArray($include, $food);
@@ -39,17 +20,6 @@
         $result = array("results" => array());
         $result["results"] = $results;
         $result = json_encode($result);
-        return $result;
-    }
-
-    function getRecipes($root, $hierarchy, $allRecipes) {
-        $ingredients = getUnder($root, $hierarchy);
-        array_push($ingredients, $root);
-        $ids = getAllRecipes($ingredients, $allRecipes);
-        $result = array();
-        foreach($ids as $id) {
-            $result[$id] = $allRecipes[$id];
-        }
         return $result;
     }
 
