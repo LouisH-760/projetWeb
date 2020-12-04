@@ -1,4 +1,13 @@
 <?php
+    function testGet($get, $hierarchy) {
+        $exclude = false;
+        if (isset($get["exclude"])) {
+            $exclude = $get["exclude"];
+            $exclude = completeWithUnder($exclude, $hierarchy);
+        }
+        return $exclude;
+    }
+
     function replaceSpecialChars($str) {
         $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
                             'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
@@ -30,6 +39,25 @@
     function inArray($haystack, $needle) {
         foreach ($haystack as $element) {
             if (stringEqualsFlexible($element, $needle)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function testIngredient($arrayToTest, $ingredient) {
+        return $arrayToTest !== false && inArray($arrayToTest, $ingredient);
+    }
+
+    function testQuery($recipe, $query) {
+        if ($query === false) {
+            return false;
+        }
+        if (stringContainsFlexible($recipe["titre"], $query)) {
+            return true;
+        }
+        foreach($recipe["index"] as $id => $ingredient) {
+            if (stringContainsFlexible($ingredient, $query)) {
                 return true;
             }
         }

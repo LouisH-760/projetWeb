@@ -3,30 +3,6 @@
     require_once("bob.php");
     require_once("searchAndAutoCompleteHelper.php");
 
-
-    function testInclude($include, $food) {
-        return $include !== false && inArray($include, $food);
-    }
-
-    function testExclude($exclude, $food) {
-        return $exclude !== false && inArray($exclude, $food);
-    }
-
-    function testQuery($recipe, $query) {
-        if ($query === false) {
-            return false;
-        }
-        if (stringContainsFlexible($recipe["titre"], $query)) {
-            return true;
-        }
-        foreach($recipe["index"] as $id => $ingredient) {
-            if (stringContainsFlexible($ingredient, $query)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     function parseResults($results) {
         $result = array("results" => array());
         $result["results"] = $results;
@@ -34,17 +10,9 @@
         return $result;
     }
 
-    $include = false;
-    if (isset($_GET["include"])) {
-        $include = $_GET["include"];
-        $include = completeWithUnder($include, $Hierarchie);
-    } 
+    $include = testGetWithHierarchy($_GET["include"], $Hierarchie);
 
-    $exclude = false;
-    if (isset($_GET["exclude"])) {
-        $exclude = $_GET["exclude"];
-        $exclude = completeWithUnder($exclude, $Hierarchie);
-    } 
+    $exclude = testGetWithHierarchy($_GET["exclude"], $Hierarchie);
 
     $query = false;
     if (isset($_GET["query"])) {
@@ -60,15 +28,14 @@
     $result = array();
     $recipes = getRecipes($root, $Hierarchie, $Recettes);
     foreach($recipes as $recipeID => $recipe){
-        // for each include, exclude, query 
         $shoudExclude = false;
         $add = false;
         foreach($recipe["index"] as $foodID => $food) {
-            if (testExclude($exclude, $food)) {
+            if (testIngredient($exclude, $food)) {
                 $shoudExclude = true;
                 break;
             }
-            if (testInclude($include, $food)) {
+            if (testIngredient($include, $food)) {
                 $add = true;
             }
         }
