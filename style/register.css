@@ -4,7 +4,6 @@ main {
 }
 
 main {
-    border : 2px solid gray;
     padding: 5px;
     width  : 75%;
     margin: 5px auto;
@@ -44,3 +43,6 @@ fieldset {
     margin: 5px 0;
 }
 
+.login {
+    margin: 5px auto;
+}

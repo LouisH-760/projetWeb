@@ -13,8 +13,9 @@
 <body>
 
     <nav>
-        <a href="index.php" id="mainlink">Retour à l'accueil</a>
-        <a href="Login.php" id="mainlink">Retour au login</a>
+        <ul>
+            <li><a href="index.php" id="mainlink">Retour à l'accueil</a></li>
+        </ul>
     </nav>
     <main>
         <h1>Créer un profil utilisateur</h1>
@@ -77,6 +78,9 @@
             </fieldset>
             <input type="submit" value="Valider" />
         </form>
+        <p class="login">
+            Vous avez déja un compte? <a href="Login.php">Se connecter</a>
+        </p>
     </main>
 </body>
 

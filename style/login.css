@@ -18,7 +18,3 @@ fieldset {
 .register {
     margin: 5px auto;
 }
-
-input[type=submit] {
-    font-size: 1.1em;
-}

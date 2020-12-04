@@ -13,8 +13,9 @@
 <body>
 
     <nav>
-        <a href="index.php" id="mainlink">Retour à l'accueil</a>
-
+        <ul>
+            <li><a href="index.php" id="mainlink">Retour à l'accueil</a></li>
+        </ul>
     </nav>
     <main>
         <h1>Se connecter</h1>
