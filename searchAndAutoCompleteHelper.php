@@ -1,11 +1,14 @@
 <?php
-    function testGet($get, $hierarchy) {
-        $exclude = false;
-        if (isset($get["exclude"])) {
-            $exclude = $get["exclude"];
-            $exclude = completeWithUnder($exclude, $hierarchy);
+    /**
+     * for exclude or include
+     */
+    function testGetWithHierarchy($get, $hierarchy) {
+        $result = false;
+        if (isset($get)) {
+            $result = $get;
+            $result = completeWithUnder($result, $hierarchy);
         }
-        return $exclude;
+        return $result;
     }
 
     function replaceSpecialChars($str) {
