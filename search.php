@@ -13,13 +13,13 @@
     $include = false;
     if (isset($_GET["include"])) {
         $include = $_GET["include"];
-        $include = completeWithUnder($include, $hierarchy);
+        $include = completeWithUnder($include, $Hierarchie);
     }
 
     $exclude = false;
     if (isset($_GET["exclude"])) {
         $exclude = $_GET["exclude"];
-        $exclude = completeWithUnder($exclude, $hierarchy);
+        $exclude = completeWithUnder($exclude, $Hierarchie);
     }
 
     $query = false;

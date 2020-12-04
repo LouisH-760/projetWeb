@@ -3,7 +3,11 @@
     require_once("bob.php");
     require_once("searchAndAutoCompleteHelper.php");
     
-    $exclude = testGetWithHierarchy($_GET["exclude"], $Hierarchie);
+    $exclude = false;
+    if (isset($_GET["exclude"])) {
+        $exclude = $_GET["exclude"];
+        $exclude = completeWithUnder($exclude, $hierarchy);
+    }
 
-    
+
 ?>
