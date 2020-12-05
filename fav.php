@@ -26,7 +26,9 @@ if (!(isset($_SESSION["logged"])) || $_SESSION["logged"] != true) {
         </ul>
     </nav>
     <main>
-
+        <h1>Mes recettes favorites</h1>
+        <div id="container">
+        </div>
     </main>
 </body>
 </html>

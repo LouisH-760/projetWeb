@@ -1,18 +1,25 @@
+/**
+ * get the favourites and display them
+ */
 function fillMain() {
     let login = $("#login").val();
     $.get("getFavourite.php", {"login":login}, resultHandler);
 }
 
+/**
+ * Once we got the favourites from the server, display them
+ * @param {*} result 
+ */
 function resultHandler(result) {
     let parsed = new Set(JSON.parse('{"array":' + result + '}').array);
     let login = $("#login").val();
-    $("main").html($("main").html() + "<ul>");
+    $("#container").html($("#container").html() + "<ul>");
     for(let elem of parsed) {
         if (elem !== "") {
-            $("main").html($("main").html() + "<li>" + linkFromId(elem) + ' - <a href="removeFavourite.php?login=' + login + '&id=' + elem + '">supprimer</a></li>');
+            $("#container").html($("#container").html() + "<li>" + linkFromId(elem) + ' - <a href="removeFavourite.php?login=' + login + '&id=' + elem + '">supprimer</a></li>');
         }
     }
-    $("main").html($("main").html() + "</ul>");
+    $("#container").html($("#container").html() + "</ul>");
 }
 
 /**
@@ -33,4 +40,5 @@ function linkFromId(id) {
     return '<a href="afficherecette.php?id=' + id + '" id="' + id + '">Loading...</a>';
 }
 
+// immediately fill the main page
 fillMain();
