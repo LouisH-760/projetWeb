@@ -10,26 +10,13 @@ if (isset($_GET['login']) && isset($_GET['id'])) {
     }else{
         $userFile = fopen($userFavsFileName, "w");
     }
+    $seperator = ";";
+    file_put_contents($userFavsFileName, $userFile . $seperator . $id);
 
-    file_put_contents($userFavsFileName, $userFile . $seperator.$id);
-
-        echo 1;
-
-    } else {
-        echo 0;
-    }
+    echo 1;
 
 } else {
     echo 0;
 }
-
-
-//get Favs as json or Comma seperated
-
-
-
-   
-//file_put_contents($userFileName, $hashed_password);
-
 
 ?>
