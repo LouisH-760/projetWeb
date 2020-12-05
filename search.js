@@ -96,7 +96,6 @@ function autocHandle() {
  */
 function autocResHandle(result) {
     let parsed = JSON.parse(result);
-    console.log(result);
     // a set is iterable too
     // this dedupes the list.
     let ingredients = new Set(parsed.results.ingredients);
