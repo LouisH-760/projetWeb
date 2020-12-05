@@ -31,10 +31,12 @@ if (isset($_POST["login"]) && isset($_POST["passe"])) {
     <nav>
         <ul>
             <li><a href="index.php">Retour à l'accueil</a></li>
+            <li><a href="fav.php">Mes Favoris</a></li>
+            <li><a href="disconnect.php">Se déconnecter</a></li>
         </ul>
     </nav>
     <main>
-        <h1></h1>
+        <h1>Gestion des données personnelles</h1>
 
         <form method="post" action="addUserData.php">
 
@@ -44,7 +46,7 @@ if (isset($_POST["login"]) && isset($_POST["passe"])) {
                 <div class="group optional">
                     Nom :
                     <input type="text" name="nom" value="<?php if (isset($userData)) {
-                                                                echo ($userData["nom"]);
+                                                                echo $userData["nom"];
                                                             } ?>" class="fullwidth" placeholder="John" />
                 </div>
                 <div class="group optional">

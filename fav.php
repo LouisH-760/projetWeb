@@ -22,6 +22,7 @@ if (!(isset($_SESSION["logged"])) || $_SESSION["logged"] != true) {
         <ul>
             <li><a href="changeUserData.php">Mes informations utilisateur</a></li>
             <li><a href="index.php">Retourner à l'accueil</a></li>
+            <li><a href="disconnect.php">Se déconnecter</a></li>
         </ul>
     </nav>
     <main>
