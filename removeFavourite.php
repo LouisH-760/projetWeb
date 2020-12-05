@@ -1,5 +1,5 @@
 <?php
-require_once 'favouriteFunctions.php';
+require_once('favouriteFunctions.php');
 
 if (isset($_GET['login']) && isset($_GET['id'])) {
     $login = $_GET['login'];
