@@ -131,7 +131,6 @@ function parseArgs(query) {
 // then this won't run before the DOM finished loading.
 // trigger autocompletion on key release and focus gained from the searchbar
 $("#searchbar").keyup(autocHandle);
-$("#searchbar").keypress(enterHandle);
 $("#search").click(clickHandle);
 // non-jQuery listen to encompass the whole DOM
 document.addEventListener("click", function (e) {
