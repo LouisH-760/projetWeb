@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html>
 
@@ -26,44 +23,6 @@ if (isset($_POST['passe'])) {
 
 //after login
 $_SESSION["loggedInUser"] = $login;
-
-//after registration
-//create Favorites List
-if (!isset($_SESSION['favs'])) {
-    $favs = array(
-        array(
-            $login
-        )
-    );
-    $_SESSION['favs'] = $favs;
-    
-} else {
-    $favs = $_SESSION["favs"];
-    $favs[] = array(
-        $login
-    );
-    $_SESSION['favs'] = $favs;
-    
-}
-
-//create Users List
-if (!isset($_SESSION['users'])) {
-    $users = array(
-        array(
-            $login, $hashed_password
-        )
-    );
-    $_SESSION['users'] = $users;
-    
-} else {
-    $users = $_SESSION["users"];
-    $users[] = array(
-        $login, $hashed_password
-    );
-    $_SESSION['users'] = $users;
-    
-}
-
 
 $userFileName = $login . ".txt";
 if (file_exists($userFileName)) {
@@ -156,7 +115,7 @@ function removeIDfromFavs($login, $id) {
         if (strcmp($favs[$i], $id) == 0) {
             unset($favs[$i]);
         }
-    } 
+    }
 }
 
 function getFavsFromUser($login){
@@ -165,7 +124,7 @@ function getFavsFromUser($login){
 
     $favs = explode($seperator, file_get_contents($userFileName, true));
     unset($favs[0]);
-    //array_splice($favs);// <---------------
+    array_splice($favs);// <---------------
     return $favs;
 }
 

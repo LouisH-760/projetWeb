@@ -1,15 +1,4 @@
 <?php
-    /**
-     * for exclude or include
-     */
-    function testGetWithHierarchy($get, $hierarchy) {
-        $result = false;
-        if (isset($get)) {
-            $result = $get;
-            $result = completeWithUnder($result, $hierarchy);
-        }
-        return $result;
-    }
 
     function replaceSpecialChars($str) {
         $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
@@ -99,6 +88,36 @@
                 }
             }
         }
+        return $result;
+    }
+
+    function sortByPoints($array){
+        //bubble sort
+        $size = sizeof($array);
+        for ($i = 0; $i < $size; $i++) {
+            for ($j = 0; $j < $size - $i - 1; $j++) {
+                if ($array[$j]["points"] < $array[$j + 1]["points"]) {
+                    $temp = $array[$j];
+                    $array[$j] = $array[$j+1];
+                    $array[$j+1] = $temp;
+                }
+            }
+        }
+        return $array;
+    }
+
+    function crunchResults($array) {
+        $result = array();
+        foreach($array as $id => $element) {
+            array_push($result, $element["id"]);
+        }
+        return $result;
+    }
+
+    function parseResults($results) {
+        $result = array("results" => array());
+        $result["results"] = $results;
+        $result = json_encode($result);
         return $result;
     }
 ?>

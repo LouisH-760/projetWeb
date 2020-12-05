@@ -3,13 +3,6 @@
     require_once("bob.php");
     require_once("searchAndAutoCompleteHelper.php");
 
-    function parseResults($results) {
-        $result = array("results" => array());
-        $result["results"] = $results;
-        $result = json_encode($result);
-        return $result;
-    }
-
     $include = false;
     if (isset($_GET["include"])) {
         $include = $_GET["include"];
@@ -34,11 +27,14 @@
         $root = getRoot($Hierarchie)[0];
     }
 
-    $result = array();
     $recipes = getRecipes($root, $Hierarchie, $Recettes);
+
+    $result = array();
+    
     foreach($recipes as $recipeID => $recipe){
         $shoudExclude = false;
         $add = false;
+        $points = 0;
         foreach($recipe["index"] as $foodID => $food) {
             if (testIngredient($exclude, $food)) {
                 $shoudExclude = true;
@@ -46,15 +42,24 @@
             }
             if (testIngredient($include, $food)) {
                 $add = true;
+                $points += 1;
             }
         }
         if (testQuery($recipe, $query)) {
             $add = true;
+            $points += 1;
         }
         if (! $shoudExclude && $add) {
-            array_push($result, $recipeID);
+            $t = array();
+            $t["id"] = $recipeID;
+            $t["points"] = $points;
+            array_push($result, $t);
         }
     }
+
+    $result = sortByPoints($result);
+
+    $result = crunchResults($result);
 
     echo parseResults($result);
 ?>
