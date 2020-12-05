@@ -11,10 +11,16 @@ main {
 
 fieldset {
     text-align: left;
-    width     : 50%;
+    width     : 90%;
     margin    : 5px auto;
 }
 
 .register {
     margin: 5px auto;
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        width: 50%;
+    }
 }

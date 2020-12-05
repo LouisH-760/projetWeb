@@ -46,12 +46,13 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
 
 <body>
   <nav>
-
-    <!-- display the navigation "thread" -->
-    <?php echo 'Catégorie: ' . implode(' > ', $ariane); ?>
-    <!-- login / favourites -->
-    <!-- TODO add check if the user is logged in in the head and replace by variable? -->
-    <a href="Login.php" class="connection">Se connecter</a>
+    <ul>
+      <!-- display the navigation "thread" -->
+      <li><?php echo 'Catégorie: ' . implode(' > ', $ariane); ?></li>
+      <!-- login / favourites -->
+      <!-- TODO add check if the user is logged in in the head and replace by variable? -->
+      <li><a href="Login.php" class="connection">Se connecter</a></li>
+    </ul>
   </nav>
   <?php
   // if the category we are on has subcategories, display them

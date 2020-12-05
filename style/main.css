@@ -16,6 +16,7 @@ nav {
     background-color: #ffd082;
     padding         : 5px;
     border-bottom   : 3px solid #ff7c7c;
+    text-align      : center;
 }
 
 li {
@@ -33,15 +34,22 @@ a:hover {
     transition           : 0.3s;
 }
 
-nav {
-    text-align: center;
+nav ul {
+    padding   : 0;
+    list-style: none;
 }
 
 nav li {
-    display: inline-block;
+    display: block;
 }
 
 .hidden {
     visibility: hidden;
-    display: none;
+    display   : none;
+}
+
+@media only screen and (min-width: 768px) {
+    nav li {
+        display: inline-block;
+    }
 }

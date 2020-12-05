@@ -5,7 +5,7 @@ main {
 
 main {
     padding: 5px;
-    width  : 75%;
+    width  : 90%;
     margin: 5px auto;
 }
 
@@ -23,20 +23,8 @@ input:not([type=radio]) {
     margin: 2px 0;
 }
 
-.cpwidth {
-    width  : 25%;
-    float  : left;
-    margin : 0;
-    padding: 3px;
-}
-
-.vwidth {
-    /* add a bit of space on the left */
-    padding: 0 0 0 2px;
-    width  : 75%;
-    margin : 0;
-    float  : left;
-    padding: 3px;
+.vwidth, .cpwidth {
+    width: 100%;
 }
 
 fieldset {
@@ -45,4 +33,26 @@ fieldset {
 
 .login {
     margin: 5px auto;
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        width: 75%;
+    }
+
+    .cpwidth {
+        width  : 25%;
+        float  : left;
+        margin : 0;
+        padding: 3px;
+    }
+    
+    .vwidth {
+        /* add a bit of space on the left */
+        padding: 0 0 0 2px;
+        width  : 75%;
+        margin : 0;
+        float  : left;
+        padding: 3px;
+    }
 }

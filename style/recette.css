@@ -2,7 +2,8 @@ main {
     padding   : 5px;
     text-align: center;
     width     : 75%;
-    margin    : auto;
+    margin    : 0 auto 5em auto;
+    position  : relative;
 }
 
 #mainlink {
@@ -11,21 +12,16 @@ main {
 
 footer {
     background-color: #ffd082;
-    border-left     : 3px solid #ff7c7c;
-    position        : fixed;
-    right           : 0px;
-    top             : 0px;
+    border-top      : 3px solid #ff7c7c;
+    border-bottom      : 3px solid #ff7c7c;
+    position        : relative;
+    bottom          : 0;
     height          : 100%;
     text-align      : center;
-    padding         : 0 0.1em 0 1em;
-    writing-mode    : vertical-rl;
-    text-orientation: mixed;
+    padding         : 0 0 1em 0;
 }
 
-nav ul {
-    padding   : 0;
-    list-style: none;
-}
+
 
 h1 {
     padding              : 5px 0;
@@ -40,4 +36,8 @@ main h2 {
 
 .contenu {
     text-align: left;
+}
+
+.image img {
+    max-width: 100%;
 }
