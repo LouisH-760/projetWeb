@@ -19,7 +19,7 @@ if (isset($_POST["login"]) && isset($_POST["passe"])) {
 <html lang="fr">
 
 <head>
-    <title></title>
+    <title>Données Personnelles</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/main.css">

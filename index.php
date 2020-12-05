@@ -44,7 +44,7 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
   <!-- search script -->
   <!-- using defer so it is loaded when everything else is done -->
   <script src="Scripts/search.js" defer></script>
-  <title>Projet</title>
+  <title>Cocktails!</title>
 </head>
 
 <body>
