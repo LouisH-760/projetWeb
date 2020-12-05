@@ -32,14 +32,11 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/index.css">
 
-  <!-- Google fonts WOOOOOOOOOOOOo -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-  <!-- To continue on our Google spree, Google-hosted jQuery WOOOOOOOOOOOOOOOOOOOOOOo -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- search script -->
   <!-- using defer so it is loaded when everything else is done -->
-  <!-- https://pyxis.nymag.com/v1/imgs/d6a/dc7/4a5001b7beea096457f480c8808572428b-09-roll-safe.rsquare.w700.jpg -->
   <script src="search.js" defer></script>
   <title>Projet</title>
 </head>

@@ -34,8 +34,6 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><img src="' . $image
 
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/recette.css">
-
-    <!-- Google fonts WOOOOOOOOOOOOo -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 
