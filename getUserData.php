@@ -1,5 +1,5 @@
 <?php
-include 'userDataFunctions.php';
+require_once 'userDataFunctions.php';
 if (isset($_GET['login'])) {
     $login = $_GET['login'];
     $userFavsFileName = getUserDataFileName($login);
