@@ -15,6 +15,12 @@
         $exclude = completeWithUnder($exclude, $Hierarchie);
     }
 
+    $ingredients = false;
+    if (isset($_GET["ingredients"])){
+        $ingredients = $_GET["ingredients"];
+    }
+
+
     $query = false;
     if (isset($_GET["query"])) {
         $query = $_GET["query"];
@@ -62,14 +68,25 @@
         }
     }
 
+    
     $selectedIngredients = array();
-    $underHierarchy = getUnder($root, $Hierarchie);
-    array_push($underHierarchy, $root);
-    foreach($underHierarchy as $id => $ingredient) {
+
+    foreach($Hierarchie as $ingredient => $useless) {
         if (stringContainsFlexible($ingredient, $query)) {
             if (! inArray($include, $query) && ! inArray($exclude, $query)) {
-                array_push($selectedIngredients, $ingredient);
+                $add = true;
             }
+        } 
+        if (! $add) {
+            foreach($ingredients as $searching) {
+                if (stringContainsFlexible($ingredient, $searching)) {
+                    $add = true;
+                    break;
+                }
+            }
+        }
+        if ($add) {
+            array_push($selectedIngredients, $ingredient);
         }
     }
 
