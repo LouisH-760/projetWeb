@@ -14,7 +14,7 @@ if (!(isset($_SESSION["logged"])) || $_SESSION["logged"] != true) {
     <link rel="stylesheet" href="style/main.css">
     <title>Mes Favoris</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="fav.js" defer></script>
+    <script src="Scripts/fav.js" defer></script>
 </head>
 <body>
     <input type="hidden" class="hidden" value="<?php echo $login; ?>" id="login">

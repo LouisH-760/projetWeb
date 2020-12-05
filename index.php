@@ -43,7 +43,7 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- search script -->
   <!-- using defer so it is loaded when everything else is done -->
-  <script src="search.js" defer></script>
+  <script src="Scripts/search.js" defer></script>
   <title>Projet</title>
 </head>
 

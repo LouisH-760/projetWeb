@@ -46,7 +46,7 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><img src="' . $image
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="addFav.js" defer></script>
+    <script src="Scripts/addFav.js" defer></script>
 
     <title><?php echo $titre; ?></title>
 </head>
