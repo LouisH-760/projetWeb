@@ -5,10 +5,11 @@ if (isset($_GET['login']) && isset($_GET['id'])) {
     $id = $_GET['id']; 
     
     $userFavsFileName = getUserFavsFileName($login);
+    $userFile = "";
     if (file_exists($userFavsFileName)) {
         $userFile = file_get_contents($userFavsFileName, true);
     }else{
-        $userFile = fopen($userFavsFileName, "w");
+        fopen($userFavsFileName, "w");
     }
     $seperator = ";";
     file_put_contents($userFavsFileName, $userFile . $seperator . $id);
@@ -18,5 +19,4 @@ if (isset($_GET['login']) && isset($_GET['id'])) {
 } else {
     echo 0;
 }
-
 ?>

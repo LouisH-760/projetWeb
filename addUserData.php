@@ -59,7 +59,7 @@ $userFile = fopen($userFavsFileName, "w");//overwriting file
 
 file_put_contents($userFavsFileName, json_encode(compact(array("login", "hashedPassword", "mail", "nom", "prenom", "sexe", "naissance", "adresse", "adresseCP", "adresseV"))));
 
-echo 1;
+header("Location: index.php");
 
 
 ?>

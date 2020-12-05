@@ -1,8 +1,14 @@
 <?php
 require_once("Donnees.inc.php");
 require_once('bob.php');
+session_start();
 $root = getRoot($Hierarchie)[0];
 
+if(isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {
+  $login = '<a href="fav.php">Mes Favoris</a> - <a href="disconnect.php">Se déconnecter</a>';
+} else {
+  $login = '<a href="Login.php" class="connection">Se connecter</a>';
+}
 // if there is no params array, create it
 if (!isset($_GET["params"])) {
   $params = array($root);
@@ -47,8 +53,7 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
       <!-- display the navigation "thread" -->
       <li><?php echo 'Catégorie: ' . implode(' > ', $ariane); ?></li>
       <!-- login / favourites -->
-      <!-- TODO add check if the user is logged in in the head and replace by variable? -->
-      <li><a href="Login.php" class="connection">Se connecter</a></li>
+      <li><?php echo $login; ?></li>
     </ul>
   </nav>
   <?php

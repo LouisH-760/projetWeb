@@ -9,10 +9,7 @@ function getUserDataFileName($login){
 function loginCorrect($login, $password){
     $userData = json_decode(getUserData($login), true);
     $hashedPassword = $userData["hashedPassword"];
-    if (strcmp($hashedPassword, password_hash($password, PASSWORD_DEFAULT)) == 0) {
-        return true;
-    }
-    return false;
+    return password_verify($password, $hashedPassword);
 
 }
 

@@ -11,11 +11,11 @@ main {
 }
 
 h1 {
-    padding              : 5px 0;
+    padding: 5px 0;
 }
 
 main h2 {
-    padding        : 5px 0;
+    padding: 5px 0;
 }
 
 .contenu {
@@ -24,5 +24,5 @@ main h2 {
 
 .image img {
     max-width: 100%;
-    margin: 1em 0;
+    margin   : 1em 0;
 }

@@ -10,21 +10,23 @@ if (isset($_GET['login']) && isset($_GET['id'])) {
         $seperator = ";";
         $userFile = file_get_contents($userFavsFileName, true);
         $favs = explode($seperator, $userFile);
-
+        $tmp = array();
         foreach ($favs as $key => $value) {
-              if (strcmp($value, $id) == 0) {
-                unset($key);
+              if (strcmp($value, $id) != 0) {
+                //unset($key);
+                $tmp[] = $value;
             }
         }
-        file_put_contents($userFavsFileName, implode($seperator, $favs)); 
+        file_put_contents($userFavsFileName, implode($seperator, $tmp)); 
 
-        echo 1;
+        header("Location: fav.php");
 
     } else {
-        echo 0;
+        echo "erreur lors de la suppresion. <a href='index.php'>Retour à l'accueil</a>";
     }
 
 } else {
-    echo 0;
+    echo "erreur lors de la suppresion. <a href='index.php'>Retour à l'accueil</a>";
 }
 ?>
+

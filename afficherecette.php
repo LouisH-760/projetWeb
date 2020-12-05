@@ -2,6 +2,15 @@
 define("EXTENSION", ".jpg");
 require_once("Donnees.inc.php");
 require_once("bob.php");
+
+session_start();
+
+if(isset($_SESSION["login"])) {
+    $login = $_SESSION["login"];
+    $fav = '<button id="addFav">Ajouter la recette au favoris</button>';
+} else {
+    $fav = "";
+}
 // if the id isn't set, do something
 // eventually check if the id exists?
 if (!isset($_GET["id"])) {
@@ -36,11 +45,15 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><img src="' . $image
     <link rel="stylesheet" href="style/recette.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="addFav.js" defer></script>
 
     <title><?php echo $titre; ?></title>
 </head>
 
 <body>
+    <input type="hidden" name="login" id="login" value="<?php echo $login; ?>" class="hidden">
+    <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" class="hidden">
     <nav>
         <ul>
             <?php echo $prev; ?>
@@ -51,6 +64,7 @@ $imgContainer = (file_exists($image)) ? '<div class="image"><img src="' . $image
     <main>
         <p>
             <h1><?php echo $titre; ?></h1>
+            <?php echo $fav; ?>
             <h2>Ingrédients</h2>
             <div class="contenu">
                 <ul class="ingrédients">

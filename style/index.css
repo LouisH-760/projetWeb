@@ -64,25 +64,27 @@
     font-size: 0.8em;
 }
 
-.search input, .search button {
+.search input,
+.search button {
     font-size: 1.1em;
-    width: 100%;
-    margin: 2px 0;
+    width    : 100%;
+    margin   : 2px 0;
 }
 
 .autocomplete {
     position: relative;
     display : inline-block;
-    width: 100%;
+    width   : 100%;
 }
 
-.autocomplete input, .search button {
+.autocomplete input,
+.search button {
     padding: 8px 5px;
 }
 
 .search button {
-    background-color:#ffd082;
-    border: 1px solid gray;
+    background-color: #ffd082;
+    border          : 1px solid gray;
 }
 
 input[type=text] {
@@ -91,7 +93,7 @@ input[type=text] {
 
 .rescom {
     text-align: center;
-    font-size: 0.9em;
+    font-size : 0.9em;
 }
 
 .recettes {
@@ -136,7 +138,8 @@ input[type=text] {
         width: 50%;
     }
 
-    .autocomplete input, .search button {
+    .autocomplete input,
+    .search button {
         padding: 2px 2px;
     }
 

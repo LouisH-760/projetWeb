@@ -6,7 +6,7 @@ main {
 main {
     padding: 5px;
     width  : 90%;
-    margin: 5px auto;
+    margin : 5px auto;
 }
 
 form {
@@ -23,7 +23,8 @@ input:not([type=radio]) {
     margin: 2px 0;
 }
 
-.vwidth, .cpwidth {
+.vwidth,
+.cpwidth {
     width: 100%;
 }
 
@@ -46,7 +47,7 @@ fieldset {
         margin : 0;
         padding: 3px;
     }
-    
+
     .vwidth {
         /* add a bit of space on the left */
         padding: 0 0 0 2px;

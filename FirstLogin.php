@@ -12,20 +12,18 @@
 </head>
 <body>
     <nav>
-        <a href="index.php" id="mainlink">Retour à l'accueil</a>
         <ul>
             <li><a href="index.php" id="mainlink">Retour à l'accueil</a></li>
         </ul>
     </nav>
     <main>
         <h1>Créer un profil utilisateur</h1>
-        <form method="post" action="Verif.php">
+        <form method="post" action="addUserData.php">
             <fieldset>
                 <legend>Utilisateur</legend>
                 <div class="group required tooltip">
                     Login :
                     <input type="text" name="login" required="required" class="fullwidth" placeholder="john123"/>
-                    <input type="text" name="login" required="required" class="fullwidth" placeholder="john123" />
                     <span class="tooltiptext">Champ obligatoire</span>
                 </div>
                 <div class="group required tooltip">
@@ -36,7 +34,6 @@
                 <div class="group optional">
                     Mail :
                     <input type="text" name="mail" class="fullwidth" placeholder="john@example.com"/>
-                    <input type="text" name="mail" class="fullwidth" placeholder="john@example.com" />
                 </div>
             </fieldset>
             <fieldset>
@@ -44,21 +41,17 @@
                 <div class="group optional">
                     Nom :
                     <input type="text" name="nom" class="fullwidth" placeholder="John"/>
-                    <input type="text" name="nom" class="fullwidth" placeholder="John" />
                 </div>
                 <div class="group optional">
                     Prénom :
                     <input type="text" name="prenom" class="fullwidth" placeholder="Doe"/></div>
-                    <input type="text" name="prenom" class="fullwidth" placeholder="Doe" /></div>
                 <div class="group optional">
                     Vous êtes :
                     <label><input type="radio" name="sexe" value="f" /> femme</label>
-                    <label><input type="radio" name="sexe" value="h" /> homme</label>
                 </div>
                 <div class="group optional">
                     Date de naissance :
                     <input type="date" name="naissance" class="fullwidth"/>
-                    <input type="date" name="naissance" class="fullwidth" />
                 </div>
             </fieldset>
             <fieldset>
@@ -66,19 +59,16 @@
                 <div class="group optional">
                     Adresse :
                     <input type="text" name="adresse" class="fullwidth" placeholder="1, Avenue Example"/>
-                    <input type="text" name="adresse" class="fullwidth" placeholder="1, Avenue Example" />
                 </div>
                 <div class="groupnp">
                     <div class="fullwidth">
                         <div class="cpwidth optional">
                             Code Postal :
                             <input type="text" name="adresseCP" class="fullwidth" placeholder="12345"/>
-                            <input type="text" name="adresseCP" class="fullwidth" placeholder="12345" />
                         </div>
                         <div class="vwidth">
                             Ville :
                             <input type="text" name="adresseV" class="fullwidth" placeholder="Example-sur-mer"/>
-                            <input type="text" name="adresseV" class="fullwidth" placeholder="Example-sur-mer" />
                         </div>
                     </div>
                 </div>

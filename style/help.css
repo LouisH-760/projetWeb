@@ -2,7 +2,7 @@ h1,
 h2,
 h3 {
     text-align: center;
-    margin: 7px 0;
+    margin    : 7px 0;
 }
 
 main {
@@ -11,9 +11,9 @@ main {
 }
 
 code {
-    border: 1px solid gray;
+    border          : 1px solid gray;
     background-color: lightgray;
-    font: monospace;
-    padding: 2px 5px;
-    border-radius: 5px;
+    font            : monospace;
+    padding         : 2px 5px;
+    border-radius   : 5px;
 }
