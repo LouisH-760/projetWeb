@@ -61,20 +61,28 @@
 }
 
 .search a {
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
-.search input[type=submit] {
-    background-color: dodgerblue;
-    color           : white;
-    font-weight     : bold;
-    cursor          : pointer;
+.search input, .search button {
+    font-size: 1.1em;
+    width: 100%;
+    margin: 2px 0;
 }
 
 .autocomplete {
     position: relative;
     display : inline-block;
-    width   : 50%;
+    width: 100%;
+}
+
+.autocomplete input, .search button {
+    padding: 8px 5px;
+}
+
+.search button {
+    background-color:#ffd082;
+    border: 1px solid gray;
 }
 
 input[type=text] {
@@ -117,5 +125,17 @@ input[type=text] {
 @media only screen and (min-width: 768px) {
     .subcats li {
         display: inline-block;
+    }
+
+    .autocomplete {
+        width: 50%;
+    }
+
+    .autocomplete input, .search button {
+        padding: 2px 2px;
+    }
+
+    .search button {
+        width: fit-content;
     }
 }
