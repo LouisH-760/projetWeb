@@ -90,9 +90,6 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
     echo '</ul>';
     ?>
   </div>
-  <footer>
-    Cocktails - 2020
-  </footer>
 </body>
 
 </html>
