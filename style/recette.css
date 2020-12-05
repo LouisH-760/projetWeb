@@ -24,4 +24,5 @@ main h2 {
 
 .image img {
     max-width: 100%;
+    margin: 1em 0;
 }
