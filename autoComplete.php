@@ -73,12 +73,12 @@
 
     foreach($Hierarchie as $ingredient => $useless) {
         $add = false;
-        if (stringContainsFlexible($ingredient, $query)) {
+        if ($include !== false && $exclude !== false && $query !== false && stringContainsFlexible($ingredient, $query)) {
             if (! inArray($include, $query) && ! inArray($exclude, $query)) {
                 $add = true;
             }
         } 
-        if (! $add) {
+        if (! $add && $ingredients !== false) {
             foreach($ingredients as $searching) {
                 if (stringContainsFlexible($ingredient, $searching)) {
                     $add = true;

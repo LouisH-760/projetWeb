@@ -23,7 +23,7 @@
     function stringContainsFlexible($haystack, $needle) {
         $needle = simplifyText($needle);
         $haystack = simplifyText($haystack);
-        $result = strpos($haystack, $needle) !== false || stringEqualsFlexible($haystack, $needle);
+        $result = ($needle != "" && strpos($haystack, $needle) !== false) || stringEqualsFlexible($haystack, $needle);
         return $result;
     }
 
