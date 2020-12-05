@@ -1,4 +1,5 @@
 // regex object with both separators to do it all at once
+// matches a single + or -
 const SPLIT = /([-\+])/g;
 // both our separators for later comparison.
 // if you change one, change the regex too!
