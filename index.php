@@ -80,7 +80,7 @@ $matchingRecipes = getAllRecipes(getUnder($current, $Hierarchie), $Recettes);
       <button type="button" id="search">Rechercher</button>
     </form>
     <hr>
-    <a href="help.html">Aide à la recherche</a>
+    <a href="Help/help.html">Aide à la recherche</a>
   </div>
   <div class="recettes" id="mainContainer">
     <?php
