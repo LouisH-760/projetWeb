@@ -48,6 +48,18 @@ nav li {
     display   : none;
 }
 
+
+footer {
+    background-color: #ffd082;
+    border-top      : 3px solid #ff7c7c;
+    border-bottom      : 3px solid #ff7c7c;
+    position        : relative;
+    bottom          : 0;
+    height          : 100%;
+    text-align      : center;
+    padding         : 0 0 1em 0;
+}
+
 @media only screen and (min-width: 768px) {
     nav li {
         display: inline-block;
