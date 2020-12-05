@@ -21,19 +21,26 @@ function clickHandle() {
 function searchResultHandler(results) {
     let resObj = JSON.parse(results);
     let links = new Array();
+    // first, get all the IDs from the answer
     for (let elem of resObj.results) {
+        // this function will add the title to the links once it gets an answer from the server
         links.push(linkFromId(elem));
     }
     let disp;
+    // if there are one or more links
     if (links.length >= 1) {
+        // add a line for a stat and a link to clear the results
         disp = '<div class="rescom">' + links.length + ' Résultats. <a href="index.php">Réinitialiser la recherche</a></div>';
+        // al the results are displayed as a list
         disp += "<ul><li>";
+        // add all the links
         disp += links.join("</li><li>");
         disp += "</li></ul>";
+        // if there are no links, show an error message
     } else {
         disp = '<div class="rescom">Aucun résultat trouvé pour votre requête</div>';
     }
-
+    // actually display what we computed
     $("#mainContainer").html(disp);
 }
 
@@ -55,6 +62,10 @@ function linkFromId(id) {
     return '<a href="afficherecette.php?id=' + id + '" id="' + id + '">Loading...</a>';
 }
 
+/**
+ * Get the value of the search bar and call the parsing function
+ * return the output
+ */
 function getParsedInput() {
     // searchbar trimmed value
     let inputVal = $('#searchbar').val().trim();
@@ -67,6 +78,7 @@ function getParsedInput() {
  */
 function autocHandle() {
     let toSend = getParsedInput();
+    // get the current category from the hidden field placed using php
     toSend.root = $("#currentVal").val();
     $.get("autoComplete.php", toSend, autocResHandle);
 }
@@ -77,27 +89,40 @@ function autocHandle() {
  */
 function autocResHandle(result) {
     let parsed = JSON.parse(result);
+    // a set is iterable too
+    // this dedupes the list.
     let ingredients = new Set(parsed.results.ingredients);
+    // add the deduped ingredients to the autocomplete
     addToAutoCompleteBox(ingredients);
 }
 
 /**
  * What happens when you click on an autocomplete element
+ * replaces the stub that the user was typing
  */
 function autocPclickhandler() {
+    // what do i need to add?
     let toAdd = this.innerHTML;
+    // in what do i need to add it
     let searchVal = $("#searchbar").val();
+    // get the pos of the first +
     let plusPos = searchVal.lastIndexOf(PLUSSEP);
+    // get the pos of the first -
     let minusPos = searchVal.lastIndexOf(PLUSSEP);
+    // shave everything after the latter of both signs, 
+    // everything if there are nonce
     let shave = Math.max(plusPos, minusPos);
+    // actual shaving
     let shaved = searchVal.substring(0, shave + 1);
+    // put the value to add in after the shaved original content
     $("#searchbar").val(shaved + toAdd);
 }
 
 /**
  * Take an array of strings or whatever as input,
  * then add them as autocomplete prompts to the searchbar
- * @param {array} array 
+ * Actually doesn't need to be an array, just iterable
+ * @param {iterable} array 
  */
 function addToAutoCompleteBox(array) {
     // remove all existing autocomplete items
