@@ -26,11 +26,12 @@ function searchResultHandler(results) {
     }
     let disp;
     if (links.length >= 1) {
-        disp = "<ul><li>";
+        disp = '<div class="rescom">' + links.length + ' Résultats. <a href="index.php">Réinitialiser la recherche</a></div>';
+        disp += "<ul><li>";
         disp += links.join("</li><li>");
         disp += "</li></ul>";
     } else {
-        disp = '<div class="nores">Aucun résultat trouvé pour votre requête</div>';
+        disp = '<div class="rescom">Aucun résultat trouvé pour votre requête</div>';
     }
 
     $("#mainContainer").html(disp);
@@ -67,9 +68,30 @@ function getParsedInput() {
 function autocHandle() {
     let toSend = getParsedInput();
     toSend.root = $("#currentVal").val();
-    // TODO eplace this by sending to the backend
-    // TODO replace placeholder with actual autocomplete to display
-    addToAutoCompleteBox(toSend.include);
+    $.get("autoComplete.php", toSend, autocResHandle);
+}
+
+/**
+ * Get the JSON string of the autocomplete and add it to the autocomplete
+ * @param {string} result 
+ */
+function autocResHandle(result) {
+    let parsed = JSON.parse(result);
+    let ingredients = new Set(parsed.results.ingredients);
+    addToAutoCompleteBox(ingredients);
+}
+
+/**
+ * What happens when you click on an autocomplete element
+ */
+function autocPclickhandler() {
+    let toAdd = this.innerHTML;
+    let searchVal = $("#searchbar").val();
+    let plusPos = searchVal.lastIndexOf(PLUSSEP);
+    let minusPos = searchVal.lastIndexOf(PLUSSEP);
+    let shave = Math.max(plusPos, minusPos);
+    let shaved = searchVal.substring(0, shave + 1);
+    $("#searchbar").val(shaved + toAdd);
 }
 
 /**
@@ -83,6 +105,7 @@ function addToAutoCompleteBox(array) {
     // create the container
     let a = document.createElement("DIV");
     a.setAttribute("class", "autocomplete-items");
+    a.setAttribute("id", "autocontainer")
     // attach it to the searchbar
     document.getElementById("searchbar").parentNode.appendChild(a);
     for (let val of array) {
@@ -90,10 +113,9 @@ function addToAutoCompleteBox(array) {
         let b = document.createElement("DIV");
         // set the value
         b.innerHTML = val;
+        b.setAttribute("class", "autoc-item");
         // make it so if one is clicked, its value is appended to the searchbar
-        b.addEventListener("click", function (e) {
-            $('#searchbar').val($('#searchbar').val() + this.innerHTML);
-        });
+        b.addEventListener("click", autocPclickhandler);
         // append it to the container
         a.appendChild(b);
     }
@@ -124,7 +146,7 @@ function parseArgs(query) {
             tmpquery.push(firstSplit[i].trim());
         }
     }
-    return { "query": tmpquery, "include": tmpplus, "exclude": tmpminus, "root": root};
+    return { "query": tmpquery, "include": tmpplus, "exclude": tmpminus, "root": root };
 }
 
 // if the script is properly referenced in the head (with "defer"),

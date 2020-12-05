@@ -89,12 +89,17 @@ input[type=text] {
     width: 100%;
 }
 
-.nores {
+.rescom {
     text-align: center;
+    font-size: 0.9em;
 }
 
 .recettes {
     padding-bottom: 5em;
+}
+
+.connection {
+    font-weight: bold;
 }
 
 /* autocomplete box styling */
