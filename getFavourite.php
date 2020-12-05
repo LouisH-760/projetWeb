@@ -1,5 +1,5 @@
 <?php
-require_once('favouriteFunctions.php');
+require_once('Helpers/favouriteFunctions.php');
 if (isset($_GET['login'])) {
     $login = $_GET['login'];
     

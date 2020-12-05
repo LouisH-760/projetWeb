@@ -1,7 +1,7 @@
 <?php
     require_once("Data/Donnees.inc.php");
-    require_once("dataRepHelper.php");
-    require_once("searchAndAutoCompleteHelper.php");
+    require_once("Helpers/dataRepHelper.php");
+    require_once("Helpers/searchAndAutoCompleteHelper.php");
     
     $include = false;
     if (isset($_GET["include"])) {

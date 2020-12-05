@@ -1,7 +1,7 @@
 <?php
 define("EXTENSION", ".jpg");
 require_once("Data/Donnees.inc.php");
-require_once("dataRepHelper.php");
+require_once("Helpers/dataRepHelper.php");
 
 session_start();
 
