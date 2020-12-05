@@ -62,7 +62,7 @@
         }
         if (! $shoudExclude && $add) {
             $t = array();
-            $t["id"] = $recipeID;
+            $t["id"] = $recipe["titre"];
             $t["points"] = $points;
             array_push($selectedRecipes, $t);
         }
