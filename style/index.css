@@ -1,7 +1,13 @@
 .subcats {
+    padding         : 2px;
     text-align      : center;
     background-color: #88e1f2;
     border-bottom   : 3px solid #ff7c7c;
+}
+
+.subcats a {
+    width  : 100%;
+    display: inline-block;
 }
 
 .subcats ul {
@@ -10,12 +16,12 @@
 }
 
 .subcats li {
-    display      : block;
-    margin       : 3px 5px;
-    padding      : 5px;
-    border       : 3px solid #ff7c7c;
-    border-radius: 20px;
-    text-align   : center;
+    display         : block;
+    margin          : 3px 5px;
+    padding         : 5px;
+    border          : 3px solid #ff7c7c;
+    border-radius   : 20px;
+    text-align      : center;
     background-color: #ff7c7c;
     color           : white;
 }
