@@ -1,11 +1,16 @@
 <?php
 include 'userDataFunctions.php';
-if (isset($_POST['login'])) {
+if (isset($_GET['login'])) {
+    $login = $_GET['login'];
+} elseif(isset($_POST['login'])) {
     $login = $_POST['login'];
 }
-if (isset($_POST['passe'])) {
+if (isset($_GET['passe'])) {
+    $password = $_GET['passe'];
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+} elseif (isset($_POST['passe'])) {
     $password = $_POST['passe'];
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 }
 if (isset($_POST['mail'])) {
     $mail = $_POST['mail'];
@@ -48,21 +53,13 @@ if (isset($_POST['adresseV'])) {
     $adresseV = "";
 }
     
-    $userFavsFileName = getUserDataFileName($login);
-    $userFile = fopen($userFavsFileName, "w");//overwriting file
+$userFavsFileName = getUserDataFileName($login);
+$userFile = fopen($userFavsFileName, "w");//overwriting file
     
 
-    file_put_contents($userFavsFileName, json_encode(compact(array("login", "hashed_password", "mail", "nom", "prenom", "naissance", "adresse", "adresseCP", "adresseV"))));
+file_put_contents($userFavsFileName, json_encode(compact(array("login", "hashedPassword", "mail", "nom", "prenom", "sexe", "naissance", "adresse", "adresseCP", "adresseV"))));
 
-        echo 1;
-
-    } else {
-        echo 0;
-    }
-
-} else {
-    echo 0;
-}
+echo 1;
 
 
 ?>
