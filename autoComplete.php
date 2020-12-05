@@ -68,10 +68,11 @@
         }
     }
 
-    
+
     $selectedIngredients = array();
 
     foreach($Hierarchie as $ingredient => $useless) {
+        $false;
         if (stringContainsFlexible($ingredient, $query)) {
             if (! inArray($include, $query) && ! inArray($exclude, $query)) {
                 $add = true;
