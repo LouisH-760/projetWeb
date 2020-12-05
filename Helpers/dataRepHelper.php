@@ -81,4 +81,3 @@ function normalizeText($str)
     return implode('_', explode(' ', $str));
 }
 ?>
-<!-- Formerly named bob, should have been migrated successfully -->
