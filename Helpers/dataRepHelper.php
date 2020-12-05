@@ -58,10 +58,6 @@ function getAllRecipes($ingredients, $array)
                 break;
             }
         }
-        // uncomment those lines to add a 25 results limit
-        /*if(count($tmp) > 25) {
-                return $tmp;
-            }*/
     }
     return $tmp;
 }
