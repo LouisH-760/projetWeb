@@ -116,7 +116,7 @@ function autocPclickhandler() {
     // get the pos of the first +
     let plusPos = searchVal.lastIndexOf(PLUSSEP);
     // get the pos of the first -
-    let minusPos = searchVal.lastIndexOf(PLUSSEP);
+    let minusPos = searchVal.lastIndexOf(MINUSSEP);
     // shave everything after the latter of both signs, 
     // everything if there are nonce
     let shave = Math.max(plusPos, minusPos);
