@@ -1,4 +1,5 @@
 <?php
+    // Get the "root" of the Hierarchie array
     function getRoot($array) {
         $tmp = array();
         foreach($array as $name=>$value) {
@@ -9,6 +10,7 @@
         return $tmp;
     }
 
+    // Get a get-parameter string from an array
     function buildGetParams($prefix, $array) {
         $tmp = array();
         foreach($array as $key => $value) {
@@ -18,6 +20,7 @@
         return '?' . implode("&", $tmp);
     }
 
+    // Get all subcategories for a given element in a recursive manner
     function getUnder($root, $array) {
         if(array_key_exists('sous-categorie', $array[$root])) {
             $tmp = array();
@@ -31,6 +34,7 @@
         }
     }
 
+    // Get the supercategories for an array (determine a path to the "root") recursively
     function getTree($leaf, $array) {
         if(!array_key_exists('super-categorie', $array[$leaf])){
             return array($leaf);
@@ -39,6 +43,7 @@
         }
     }
 
+    // get all the recipes that have at least one ingredient in a given array
     function getAllRecipes($ingredients, $array) {
         $tmp = array();
         foreach($array as $id=>$recette) {
@@ -48,7 +53,7 @@
                     break;
                 }
             }
-            // uncomment those lines to reinstate the result limit
+            // uncomment those lines to add a 25 results limit
             /*if(count($tmp) > 25) {
                 return $tmp;
             }*/
@@ -56,6 +61,7 @@
         return $tmp;
     }
 
+    // Normalize a string: replace accents with non-accented char, remove special characters, replace spaces by _
     function normalizeText($str) {
         // remove the accents
         $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
