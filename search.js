@@ -30,7 +30,7 @@ function searchResultHandler(results) {
     // if there are one or more links
     if (links.length >= 1) {
         // add a line for a stat and a link to clear the results
-        disp = '<div class="rescom">' + links.length + ' Résultats. <a href="index.php">Réinitialiser la recherche</a></div>';
+        disp = '<div class="rescom">' + links.length + ' Résultat(s). <a href="index.php">Réinitialiser la recherche</a></div>';
         // al the results are displayed as a list
         disp += "<ul><li>";
         // add all the links
@@ -100,8 +100,10 @@ function autocResHandle(result) {
     // a set is iterable too
     // this dedupes the list.
     let ingredients = new Set(parsed.results.ingredients);
+    let recettes = new Set(parsed.results.recipes);
+    let autoComp = new Set([...ingredients, ...recettes]);
     // add the deduped ingredients to the autocomplete
-    addToAutoCompleteBox(ingredients);
+    addToAutoCompleteBox(autoComp);
 }
 
 /**
