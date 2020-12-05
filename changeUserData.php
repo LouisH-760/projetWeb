@@ -23,6 +23,7 @@ if (isset($_POST["login"]) && isset($_POST["passe"])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/forms.css">
     <link rel="stylesheet" href="style/register.css">
 </head>
 
@@ -39,8 +40,14 @@ if (isset($_POST["login"]) && isset($_POST["passe"])) {
         <h1>Gestion des données personnelles</h1>
 
         <form method="post" action="addUserData.php">
-
-
+            <input type="hidden" name="login" value="<?php echo $login; ?>">
+            <fieldset>
+                <legend>Sécurité</legend>
+                <div class="group required">
+                Confirmez votre mot de passe
+                <input type="password" name="passe" class="fullwidth" required>
+            </div>
+            </fieldset>
             <fieldset>
                 <legend>Données Personelles</legend>
                 <div class="group optional">
