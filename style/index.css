@@ -1,7 +1,7 @@
 .subcats {
-    padding         : 2px;
-    text-align      : center;
-    border-bottom   : 3px solid #ff7c7c;
+    padding      : 2px;
+    text-align   : center;
+    border-bottom: 3px solid #ff7c7c;
 }
 
 .subcats a {
@@ -40,7 +40,7 @@
 }
 
 .subcats li:hover {
-    background-color: #88e1f2;
+    background-color: white;
     color           : #21243d;
     transition      : 0.2s;
 }
