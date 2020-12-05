@@ -23,7 +23,7 @@ foreach ($Recettes[$id]['index'] as $elem) {
 $image = "Photos/" . normalizeText($titre) . EXTENSION;
 // if it actually exists, add it to the page
 // otherwise, NULL
-$imgContainer = (file_exists($image)) ? '<div class="image"><p><h2>Image</h2><img src="' . $image . '" alt="' . $titre . '" /></p></div>' : NULL;
+$imgContainer = (file_exists($image)) ? '<div class="image"><img src="' . $image . '" alt="' . $titre . '" /></div>' : NULL;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
