@@ -80,6 +80,13 @@ function autocHandle() {
     let toSend = getParsedInput();
     // get the current category from the hidden field placed using php
     toSend.root = $("#currentVal").val();
+    toSend.ingredients = new Array();
+    if (toSend.include[toSend.include.length - 1] != undefined) {
+        toSend.ingredients.push(toSend.include[toSend.include.length - 1]);
+    }
+    if(toSend.exclude[toSend.exclude.length - 1]) {
+        toSend.ingredients.push(toSend.exclude[toSend.exclude.length - 1]);
+    }
     $.get("autoComplete.php", toSend, autocResHandle);
 }
 
@@ -89,6 +96,7 @@ function autocHandle() {
  */
 function autocResHandle(result) {
     let parsed = JSON.parse(result);
+    console.log(result);
     // a set is iterable too
     // this dedupes the list.
     let ingredients = new Set(parsed.results.ingredients);
