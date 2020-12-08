@@ -48,6 +48,7 @@
                 <div class="group optional">
                     Vous êtes :
                     <label><input type="radio" name="sexe" value="f" /> femme</label>
+                    <label><input type="radio" name="sexe" value="h" /> homme</label>
                 </div>
                 <div class="group optional">
                     Date de naissance :
